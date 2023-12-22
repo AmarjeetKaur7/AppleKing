@@ -683,17 +683,7 @@ document.addEventListener('DOMContentLoaded', initializePage);
 
     let touchX;
 
-    if (e.type === 'keydown') {
-        // Handle keyboard events
-        if (e.key === 'ArrowLeft') {
-            const newLeft = Math.max(minLeft, (basket.offsetLeft - basketSpeed) / vw);
-            basket.style.left = `${newLeft}vw`;
-        } else if (e.key === 'ArrowRight') {
-            const newRight = Math.min(maxRight, (basket.offsetLeft + basketSpeed) / vw);
-            basket.style.left = `${newRight}vw`;
-        }
-    } else if (e.type === 'touchstart') {
-        // Handle touch events
+    if (e.type === 'touchstart') {
         touchX = e.touches[0].clientX;
     } else if (e.type === 'touchmove') {
         e.preventDefault(); // Prevent default scrolling behavior
@@ -715,6 +705,7 @@ document.addEventListener('DOMContentLoaded', initializePage);
 
     checkCollision();
 }
+
 
     
     
