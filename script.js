@@ -651,6 +651,7 @@ document.addEventListener('DOMContentLoaded', initializePage);
       const basketWidth = basket.offsetWidth;
       const basketSpeed = 15;
       const appleSpeed = 2;
+      gameContainer.addEventListener('keydown', moveBasket);
       gameContainer.addEventListener('touchstart', moveBasket);
       gameContainer.addEventListener('touchmove', moveBasket);
 
@@ -670,6 +671,7 @@ document.addEventListener('DOMContentLoaded', initializePage);
       
       
       function moveBasket(e) {
+          e.preventDefault();
     const deviceWidth = window.innerWidth;
     const vw = window.innerWidth / 100;
 
