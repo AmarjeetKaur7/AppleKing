@@ -308,6 +308,7 @@ li {
     #basket {
         width: 20vw;
         height: 8vh;
+        bottom: 9vh;
     } 
     h1{
         color: #000;
