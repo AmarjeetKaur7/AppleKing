@@ -311,7 +311,7 @@ li {
         background: url('./gameUI/basket.png') no-repeat center center;
         background-size: 100% 100%;
         position: absolute;
-        bottom: 9vh;
+        bottom: 6vh;
         transform: translateX(-50%);
     } 
     h1{
