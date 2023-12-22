@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
+body, .loadingpage, .gamecontainer{
     overflow: hidden;
     height: 100vh;
     width: 100vw;
@@ -294,6 +294,9 @@ li {
     .bg1{
         background-size: 100% 100%;
     }
+    .bg2{
+        background-size: cover;
+    }
     .bg1 img{
         height: 30vh;
         width: 90vw;
@@ -328,6 +331,7 @@ li {
     } 
     .start-btn{
         bottom: 25%;
+        font-size: 1.5rem;
     }
 }
 /* Tablets */
@@ -338,6 +342,9 @@ li {
     .bg1 img{
         height: 70vh;
         width: 90vw;
+    }
+    .bg2{
+        background-size: cover;
     }
     #apple1{
         width: 8vw;

@@ -735,6 +735,7 @@ document.addEventListener('DOMContentLoaded', initializePage);
         checkCollision();
     }
     
+    
       
       function fallApple(apple) {
           const currentTop = apple.offsetTop;
