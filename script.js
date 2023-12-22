@@ -667,28 +667,7 @@ document.addEventListener('DOMContentLoaded', initializePage);
   
       document.addEventListener('keydown', moveBasket);
       
-      // function moveBasket(e) {
-      //     const deviceWidth = window.innerWidth;
-      //     const vw = window.innerWidth / 100;
       
-      //     let minLeft = 10;
-      //     let maxRight = 90;
-      
-      //     if (deviceWidth < 768) {
-      //         minLeft = 10;
-      //         maxRight = 90;
-      //     }
-      
-      //     if (e.key === 'ArrowLeft') {
-      //         const newLeft = Math.max(minLeft, (basket.offsetLeft - basketSpeed) / vw);
-      //         basket.style.left = `${newLeft}vw`;
-      //     } else if (e.key === 'ArrowRight') {
-      //         const newRight = Math.min(maxRight, (basket.offsetLeft + basketSpeed) / vw);
-      //         basket.style.left = `${newRight}vw`;
-      //     }
-      
-      //     checkCollision();
-      // }
       
       function moveBasket(e) {
     const deviceWidth = window.innerWidth;
