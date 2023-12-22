@@ -689,51 +689,52 @@ document.addEventListener('DOMContentLoaded', initializePage);
       // }
       
       function moveBasket(e) {
-        const deviceWidth = window.innerWidth;
-        const vw = window.innerWidth / 100;
-    
-        let minLeft = 10;
-        let maxRight = 90;
-    
-        if (deviceWidth < 768) {
-            minLeft = 10;
-            maxRight = 90;
-        }
-    
-        let touchX;
-    
-        if (e.type === 'keydown') {
-            // Handle keyboard events
-            if (e.key === 'ArrowLeft') {
-                const newLeft = Math.max(minLeft, (basket.offsetLeft - basketSpeed) / vw);
-                basket.style.left = `${newLeft}vw`;
-            } else if (e.key === 'ArrowRight') {
-                const newRight = Math.min(maxRight, (basket.offsetLeft + basketSpeed) / vw);
-                basket.style.left = `${newRight}vw`;
-            }
-        } else if (e.type === 'touchstart') {
-            // Handle touch events
-            touchX = e.touches[0].clientX;
-        } else if (e.type === 'touchmove') {
-            e.preventDefault(); // Prevent default scrolling behavior
-            const newTouchX = e.touches[0].clientX;
-            const deltaX = newTouchX - touchX;
-    
-            if (deltaX > 0) {
-                // Swipe right
-                const newRight = Math.min(maxRight, (basket.offsetLeft + basketSpeed) / vw);
-                basket.style.left = `${newRight}vw`;
-            } else if (deltaX < 0) {
-                // Swipe left
-                const newLeft = Math.max(minLeft, (basket.offsetLeft - basketSpeed) / vw);
-                basket.style.left = `${newLeft}vw`;
-            }
-    
-            touchX = newTouchX;
-        }
-    
-        checkCollision();
+    const deviceWidth = window.innerWidth;
+    const vw = window.innerWidth / 100;
+
+    let minLeft = 10;
+    let maxRight = 90;
+
+    if (deviceWidth < 768) {
+        minLeft = 10;
+        maxRight = 90;
     }
+
+    let touchX;
+
+    if (e.type === 'keydown') {
+        // Handle keyboard events
+        if (e.key === 'ArrowLeft') {
+            const newLeft = Math.max(minLeft, (basket.offsetLeft - basketSpeed) / vw);
+            basket.style.left = `${newLeft}vw`;
+        } else if (e.key === 'ArrowRight') {
+            const newRight = Math.min(maxRight, (basket.offsetLeft + basketSpeed) / vw);
+            basket.style.left = `${newRight}vw`;
+        }
+    } else if (e.type === 'touchstart') {
+        // Handle touch events
+        touchX = e.touches[0].clientX;
+    } else if (e.type === 'touchmove') {
+        e.preventDefault(); // Prevent default scrolling behavior
+        const newTouchX = e.touches[0].clientX;
+        const deltaX = newTouchX - touchX;
+
+        if (deltaX > 0) {
+            // Swipe right
+            const newRight = Math.min(maxRight, (basket.offsetLeft + basketSpeed) / vw);
+            basket.style.left = `${newRight}vw`;
+        } else if (deltaX < 0) {
+            // Swipe left
+            const newLeft = Math.max(minLeft, (basket.offsetLeft - basketSpeed) / vw);
+            basket.style.left = `${newLeft}vw`;
+        }
+
+        touchX = newTouchX;
+    }
+
+    checkCollision();
+}
+
     
     
       
