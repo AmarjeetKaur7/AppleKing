@@ -651,10 +651,7 @@ document.addEventListener('DOMContentLoaded', initializePage);
       const basketWidth = basket.offsetWidth;
       const basketSpeed = 15;
       const appleSpeed = 2;
-      gameContainer.addEventListener('keydown', moveBasket);
-      gameContainer.addEventListener('touchstart', moveBasket);
-      gameContainer.addEventListener('touchmove', moveBasket);
-
+  
       let apple1 = document.getElementById('apple1');
   
       resetApple(apple1);
@@ -668,49 +665,29 @@ document.addEventListener('DOMContentLoaded', initializePage);
   
       document.addEventListener('keydown', moveBasket);
       
-      
-      
       function moveBasket(e) {
-          e.preventDefault();
-    const deviceWidth = window.innerWidth;
-    const vw = window.innerWidth / 100;
-
-    let minLeft = 10;
-    let maxRight = 90;
-
-    if (deviceWidth < 768) {
-        minLeft = 10;
-        maxRight = 90;
-    }
-
-    let touchX;
-
-    if (e.type === 'touchstart') {
-        touchX = e.touches[0].clientX;
-    } else if (e.type === 'touchmove') {
-        e.preventDefault(); // Prevent default scrolling behavior
-        const newTouchX = e.touches[0].clientX;
-        const deltaX = newTouchX - touchX;
-
-        if (deltaX > 0) {
-            // Swipe right
-            const newRight = Math.min(maxRight, (basket.offsetLeft + basketSpeed) / vw);
-            basket.style.left = `${newRight}vw`;
-        } else if (deltaX < 0) {
-            // Swipe left
-            const newLeft = Math.max(minLeft, (basket.offsetLeft - basketSpeed) / vw);
-            basket.style.left = `${newLeft}vw`;
-        }
-
-        touchX = newTouchX;
-    }
-
-    checkCollision();
-}
-
-
-    
-    
+          const deviceWidth = window.innerWidth;
+          const vw = window.innerWidth / 100;
+      
+          let minLeft = 10;
+          let maxRight = 90;
+      
+          if (deviceWidth < 768) {
+              minLeft = 10;
+              maxRight = 90;
+          }
+      
+          if (e.key === 'ArrowLeft') {
+              const newLeft = Math.max(minLeft, (basket.offsetLeft - basketSpeed) / vw);
+              basket.style.left = `${newLeft}vw`;
+          } else if (e.key === 'ArrowRight') {
+              const newRight = Math.min(maxRight, (basket.offsetLeft + basketSpeed) / vw);
+              basket.style.left = `${newRight}vw`;
+          }
+      
+          checkCollision();
+      }
+      
       
       function fallApple(apple) {
           const currentTop = apple.offsetTop;
