@@ -306,12 +306,16 @@ li {
     #apple1{
         width: 8vw;
         height: 5vh;
-    }
-    #basket {
-        width: 20vw;
-        height: 8vh;
-        bottom: 9vh;
     } 
+    #basket {
+    width: 20vw;
+    height: 8vh;
+    background: url('./gameUI/basket.png') no-repeat center center;
+    background-size: 100% 100%;
+    position: absolute;
+    bottom: 9vh;
+    transform: translateX(-50%);
+}
     
     h1{
         color: #000;
